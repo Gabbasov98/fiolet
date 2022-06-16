@@ -1,0 +1,19 @@
+@import "../vars";
+.display1 {
+    font-size: 72px;
+    line-height: 110%;
+    font-weight: 300;
+    font-family: $font2;
+}
+
+@media screen and (max-width: 992px) {
+    .display1 {
+        font-size: 48px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .display1 {
+        font-size: 28px;
+    }
+}

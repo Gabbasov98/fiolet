@@ -1,0 +1,193 @@
+@import "vars";
+.header {
+    padding: 42px 0;
+    color: $primary;
+    &__logo,
+    &__burger {
+        display: none;
+    }
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__address {
+        display: flex;
+        align-items: center;
+        max-width: 338px;
+        font-size: 14px;
+        line-height: 1.2;
+        font-weight: 500;
+        &-icon {
+            width: 24px;
+            flex-shrink: 0;
+            margin-right: 18px;
+            img {
+                width: 100%;
+                display: block;
+            }
+        }
+    }
+    &__socials {
+        display: flex;
+        align-items: center;
+        &-title {
+            margin-right: 21px;
+            font-size: 14px;
+            line-height: 1.2;
+            font-weight: 500;
+            max-width: 165px;
+        }
+        &-wrap {
+            display: flex;
+            align-items: center;
+        }
+        &-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border: 2px solid rgba($primary, .6);
+            &:not(:last-child) {
+                margin-right: 11px;
+            }
+            &:hover {
+                border-color: $primary;
+            }
+        }
+    }
+    &__phone {
+        display: flex;
+        align-items: center;
+        &-icon {
+            width: 24px;
+            flex-shrink: 0;
+            margin-right: 9px;
+            img {
+                width: 100%;
+                display: block;
+            }
+        }
+        &-link {
+            font-size: 24px;
+            font-weight: 500;
+            letter-spacing: 0.025em;
+        }
+        &-hint {
+            font-size: 14px;
+            margin-top: 6px;
+            text-align: right;
+        }
+    }
+}
+
+.nav {
+    display: none;
+}
+
+@media screen and (max-width: 992px) {
+    .header {
+        padding: 0;
+        background-color: #fff;
+        &__inner {
+            height: 60px;
+        }
+        &__logo,
+        &__burger {
+            display: block;
+        }
+        &__logo {
+            width: 65px;
+            img {
+                width: 100%;
+                display: block;
+            }
+        }
+        &__burger {
+            width: 36px;
+            height: 36px;
+            background-image: url(../img/burger.svg);
+            background-size: 100% auto;
+            background-position: center;
+            background-repeat: no-repeat;
+            &--active {
+                background-image: url(../img/burger2.svg);
+            }
+        }
+        &__address,
+        &__phone {
+            display: none;
+        }
+        &__mob {
+            position: fixed;
+            top: 60px;
+            left: -100%;
+            width: 100%;
+            height: calc(100vh - 60px);
+            background: #F0EBE5;
+            padding: 42px 20px 60px;
+            overflow-y: auto;
+            z-index: 20;
+            transition: all .225s;
+            &--active {
+                left: 0;
+            }
+        }
+        &__socials {
+            margin-top: 50px;
+            max-width: 228px;
+            padding: 0 25px;
+            &-title {
+                display: none;
+            }
+        }
+    }
+    .nav {
+        display: block;
+        max-width: 228px;
+        &__link {
+            display: flex;
+            align-items: center;
+            padding: 0 25px;
+            height: 40px;
+            white-space: nowrap;
+            margin-bottom: 4px;
+            font-size: 18px;
+            line-height: 133%;
+            letter-spacing: 0.09em;
+            &:hover {
+                color: #fff;
+                background-color: $primaryHover;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .header {
+        &__logo {
+            width: 42px;
+        }
+        &__burger {
+            width: 24px;
+            height: 24px;
+        }
+        &__socials {
+            margin-left: auto;
+            margin-right: auto;
+            &-item {
+                border-width: 1px;
+                width: 24px;
+                height: 24px;
+                img {
+                    width: 14px;
+                }
+            }
+        }
+    }
+    .nav {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
