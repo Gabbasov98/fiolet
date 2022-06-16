@@ -2,6 +2,7 @@ function mainSlider() {
     var swiper = new Swiper('.main .swiper-container', {
         slidesPerView: 1,
         spaceBetween: 10,
+        loop: true,
         pagination: {
             el: '.main .swiper-pagination',
             type: 'bullets',
@@ -55,6 +56,7 @@ function feedbackSlider() {
     var swiper = new Swiper('.feedback .swiper-container', {
         slidesPerView: 1,
         spaceBetween: 10,
+        loop: true,
         navigation: {
             nextEl: '.feedback .swiper-button-next',
             prevEl: '.feedback .swiper-button-prev',
@@ -71,6 +73,7 @@ function mastersSlider() {
     var swiper = new Swiper('.masters .swiper-container', {
         slidesPerView: 1,
         spaceBetween: 10,
+        loop: true,
         pagination: {
             el: '.masters .swiper-pagination',
             type: 'bullets',
@@ -83,7 +86,7 @@ function mastersSlider() {
 
 
 $(document).ready(function() {
-    $('input[type="tel"]').mask('+7 999 999-9999', { placeholder: '+7             ' });
+    $('input[type="tel"]').mask('+7 (999) 999 99 99', { autoclear: false }, { placeholder: '+7            ' });
 
     mainSlider()
     worksSlider()
@@ -99,15 +102,8 @@ $(document).ready(function() {
 
     $(".catalog__item-show").click(function() {
         let parent = $(this).parents(".catalog__items")
-
-
-        if (window.innerWidth < 1100) {
-            $(this).toggleClass("catalog__item-show--active")
-            $(this).siblings(".catalog__item-hidden").slideToggle()
-        } else {
-            $(parent).find(".catalog__item").removeClass("catalog__item--active")
-            $(this).parents(".catalog__item").addClass("catalog__item--active")
-        }
+        $(parent).find(".catalog__item").removeClass("catalog__item--active")
+        $(this).parents(".catalog__item").addClass("catalog__item--active")
     })
 
 });

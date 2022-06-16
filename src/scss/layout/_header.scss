@@ -2,6 +2,8 @@
 .header {
     padding: 42px 0;
     color: $primary;
+    position: relative;
+    z-index: 2;
     &__logo,
     &__burger {
         display: none;
