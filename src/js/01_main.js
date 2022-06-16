@@ -93,6 +93,7 @@ $(document).ready(function() {
     $(".header__burger").click(function() {
         $(this).toggleClass("header__burger--active")
         $(".header__mob").toggleClass("header__mob--active")
+        $("body").toggleClass("fixed-body")
     })
 
 
