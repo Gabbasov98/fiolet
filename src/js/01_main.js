@@ -1,23 +1,34 @@
-function mainSlider() {
-    var swiper = new Swiper('.main .swiper-container', {
-        slidesPerView: 1,
-        spaceBetween: 10,
-        loop: true,
-        pagination: {
-            el: '.main .swiper-pagination',
-            type: 'bullets',
-            clickable: true,
-        },
-        breakpoints: {
-            320: {
-                allowTouchMove: true
-            },
-            992: {
-                allowTouchMove: false
-            },
+function mainSliderInit() {
+    if (innerWidth > 992) {
+        let mainSlider = null
+    } else {
+        function mainSlider() {
+            var swiper = new Swiper('.main .swiper-container', {
+                slidesPerView: 1,
+                spaceBetween: 10,
+
+                pagination: {
+                    el: '.main .swiper-pagination',
+                    type: 'bullets',
+                    clickable: true,
+                },
+                breakpoints: {
+                    320: {
+                        allowTouchMove: true,
+                        loop: false,
+                    },
+                    992: {
+                        allowTouchMove: false,
+                        loop: true,
+                    },
+                }
+            })
         }
-    })
+        mainSlider()
+    }
 }
+
+
 
 function worksSlider() {
     var swiper = new Swiper('.works .swiper-container', {
@@ -88,10 +99,15 @@ function mastersSlider() {
 $(document).ready(function() {
     $('input[type="tel"]').mask('+7 (999) 999 99 99', { autoclear: false }, { placeholder: '+7            ' });
 
-    mainSlider()
+
+    mainSliderInit()
     worksSlider()
     feedbackSlider()
     mastersSlider()
+
+    $(window).resize(function() {
+        mainSliderInit()
+    })
 
     $(".header__burger").click(function() {
         $(this).toggleClass("header__burger--active")
