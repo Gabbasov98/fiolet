@@ -18,6 +18,10 @@
     }
     @media screen and (min-width: 992px) {
         .swiper {
+            &-wrapper {
+                position: static;
+                transform: unset !important;
+            }
             &-slide {
                 position: absolute;
                 width: 35% !important;
